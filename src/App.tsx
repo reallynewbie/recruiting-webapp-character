@@ -17,38 +17,32 @@ function App() {
       </header>
       <section className="App-section">
         <div>
-          Strength:
-          {str}
+          {ATTRIBUTE_LIST[0]}:{str}
           <button>+</button>
           <button>-</button>
         </div>
         <div>
-          Dexterity:
-          {dex}
+          {ATTRIBUTE_LIST[1]}:{dex}
           <button>+</button>
           <button>-</button>
         </div>
         <div>
-          Constitution:
-          {con}
+          {ATTRIBUTE_LIST[2]}:{con}
           <button>+</button>
           <button>-</button>
         </div>
         <div>
-          Intelligence:
-          {int}
+          {ATTRIBUTE_LIST[3]}:{int}
           <button>+</button>
           <button>-</button>
         </div>
         <div>
-          Wisdom:
-          {wis}
+          {ATTRIBUTE_LIST[4]}:{wis}
           <button>+</button>
           <button>-</button>
         </div>
         <div>
-          Charisma:
-          {chr}
+          {ATTRIBUTE_LIST[5]}:{chr}
           <button>+</button>
           <button>-</button>
         </div>
