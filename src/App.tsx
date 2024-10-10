@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from "./consts";
 import { increaseAttribute, decreaseAttribute } from "./attributeHelpers";
+import type { Attributes, Class } from "./types";
 
 function App() {
   const [availableClasses, setAvailableClasses] = useState<string[]>([]);
-  const classes = CLASS_LIST
+  const [displayRequirements, setDisplayRequirements] =
+    useState<boolean>(false);
+
+  const [requiredStats, setRequiredStats] = useState<Attributes>();
 
   const statsMap = {
     Strength: {
@@ -32,6 +36,11 @@ function App() {
       stat: chr,
       setStat: setChr,
     },
+  };
+
+  const handleClickedClass = (className) => {
+    setDisplayRequirements(true);
+    setRequiredStats(CLASS_LIST[className]);
   };
 
   useEffect(() => {
@@ -97,10 +106,31 @@ function App() {
         </div>
       </section>
       <section className="App-section">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ marginRight: "30px" }}>
         Available Classes:
         {Object.keys(CLASS_LIST).map((value) => (
-          <div>{value}</div>
+              <div onClick={() => handleClickedClass(value)}>{value}</div>
         ))}
+          </div>
+          {displayRequirements && (
+            <div>
+              Attribute Requirements
+              <div>Strength: {requiredStats["Strength"]}</div>
+              <div>Dexterity: {requiredStats["Dexterity"]}</div>
+              <div>Constitution: {requiredStats["Constitution"]}</div>
+              <div>Intelligence: {requiredStats["Intelligence"]}</div>
+              <div>Wisdom: {requiredStats["Wisdom"]}</div>
+              <div>Charisma: {requiredStats["Charisma"]}</div>
+            </div>
+          )}
+        </div>
       </section>
       <section className="App-section">
         Meets Requirements For The Following Classes:
