@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from "./consts";
-import { increaseAttribute, decreaseAttribute } from "./attributeHelpers";
+import { increaseAttribute, decreaseAttribute, modifierCalculator } from "./attributeHelpers";
 import type { Attributes, Class } from "./types";
 
 function App() {
@@ -75,32 +75,32 @@ function App() {
       </header>
       <section className="App-section">
         <div>
-          {ATTRIBUTE_LIST[0]}:{str}
+          {ATTRIBUTE_LIST[0]}:{str} ({modifierCalculator(str)})
           <button onClick={() => increaseAttribute(str, setStr)}>+</button>
           <button onClick={() => decreaseAttribute(str, setStr)}>-</button>
         </div>
         <div>
-          {ATTRIBUTE_LIST[1]}:{dex}
+          {ATTRIBUTE_LIST[1]}:{dex} ({modifierCalculator(dex)})
           <button onClick={() => increaseAttribute(dex, setDex)}>+</button>
           <button onClick={() => decreaseAttribute(dex, setDex)}>-</button>
         </div>
         <div>
-          {ATTRIBUTE_LIST[2]}:{con}
+          {ATTRIBUTE_LIST[2]}:{con} ({modifierCalculator(con)})
           <button onClick={() => increaseAttribute(con, setCon)}>+</button>
           <button onClick={() => decreaseAttribute(con, setCon)}>-</button>
         </div>
         <div>
-          {ATTRIBUTE_LIST[3]}:{int}
+          {ATTRIBUTE_LIST[3]}:{int} ({modifierCalculator(int)})
           <button onClick={() => increaseAttribute(int, setInt)}>+</button>
           <button onClick={() => decreaseAttribute(int, setInt)}>-</button>
         </div>
         <div>
-          {ATTRIBUTE_LIST[4]}:{wis}
+          {ATTRIBUTE_LIST[4]}:{wis} ({modifierCalculator(wis)})
           <button onClick={() => increaseAttribute(wis, setWis)}>+</button>
           <button onClick={() => decreaseAttribute(wis, setWis)}>-</button>
         </div>
         <div>
-          {ATTRIBUTE_LIST[5]}:{chr}
+          {ATTRIBUTE_LIST[5]}:{chr} ({modifierCalculator(chr)})
           <button onClick={() => increaseAttribute(chr, setChr)}>+</button>
           <button onClick={() => decreaseAttribute(chr, setChr)}>-</button>
         </div>

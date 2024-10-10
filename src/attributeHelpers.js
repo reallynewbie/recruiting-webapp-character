@@ -8,3 +8,27 @@ export const decreaseAttribute = (attribute, setAttribute) => {
   }
   setAttribute(attribute - 1);
 };
+
+export const modifierCalculator = (attributeValue) => {
+    let modifier = 0
+
+    if (attributeValue === 10 || attributeValue === 11) {
+        return modifier
+    }
+    if (attributeValue < 10) {
+        let tempAttributeValue = 10
+        while (attributeValue < tempAttributeValue) {
+            tempAttributeValue -= 2
+            modifier -= 1
+        }
+        return modifier
+    }
+    if (attributeValue > 10) {
+        let tempAttributeValue = 11
+        while (attributeValue > tempAttributeValue) {
+            tempAttributeValue += 2
+            modifier += 1
+        }
+        return modifier
+    }
+}
