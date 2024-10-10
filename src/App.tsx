@@ -4,7 +4,13 @@ import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 
 
 function App() {
-  const [num, setNum] = useState<number>(0);
+  const [str, setStr] = useState<number>(0);
+  const [dex, setDex] = useState<number>(0);
+  const [con, setCon] = useState<number>(0);
+  const [int, setInt] = useState<number>(0);
+  const [wis, setWis] = useState<number>(0);
+  const [chr, setChr] = useState<number>(0);
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -13,7 +19,7 @@ function App() {
       <section className="App-section">
         <div>
           Value:
-          {num}
+          {/* {num} */}
           <button>+</button>
           <button>-</button>
         </div>
