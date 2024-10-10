@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from "./consts";
+import { increaseAttribute, decreaseAttribute } from "./attributeHelpers";
 
 function App() {
   const [str, setStr] = useState<number>(0);
@@ -9,17 +10,6 @@ function App() {
   const [int, setInt] = useState<number>(0);
   const [wis, setWis] = useState<number>(0);
   const [chr, setChr] = useState<number>(0);
-
-  const increaseAttribute = (attribute, setAttribute) => {
-    setAttribute(attribute + 1);
-  };
-
-  const decreaseAttribute = (attribute, setAttribute) => {
-    if (attribute <= 0) {
-      throw new Error("Attribute cannot go below zero");
-    }
-    setAttribute(attribute - 1);
-  };
 
   return (
     <div className="App">
