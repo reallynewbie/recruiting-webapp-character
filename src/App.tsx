@@ -10,6 +10,17 @@ function App() {
   const [wis, setWis] = useState<number>(0);
   const [chr, setChr] = useState<number>(0);
 
+  const increaseAttribute = (attribute, setAttribute) => {
+    setAttribute(attribute + 1);
+  };
+
+  const decreaseAttribute = (attribute, setAttribute) => {
+    if (attribute <= 0) {
+      throw new Error("Attribute cannot go below zero");
+    }
+    setAttribute(attribute - 1);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,33 +29,33 @@ function App() {
       <section className="App-section">
         <div>
           {ATTRIBUTE_LIST[0]}:{str}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(str, setStr)}>+</button>
+          <button onClick={() => decreaseAttribute(str, setStr)}>-</button>
         </div>
         <div>
           {ATTRIBUTE_LIST[1]}:{dex}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(dex, setDex)}>+</button>
+          <button onClick={() => decreaseAttribute(dex, setDex)}>-</button>
         </div>
         <div>
           {ATTRIBUTE_LIST[2]}:{con}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(con, setCon)}>+</button>
+          <button onClick={() => decreaseAttribute(con, setCon)}>-</button>
         </div>
         <div>
           {ATTRIBUTE_LIST[3]}:{int}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(int, setInt)}>+</button>
+          <button onClick={() => decreaseAttribute(int, setInt)}>-</button>
         </div>
         <div>
           {ATTRIBUTE_LIST[4]}:{wis}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(wis, setWis)}>+</button>
+          <button onClick={() => decreaseAttribute(wis, setWis)}>-</button>
         </div>
         <div>
           {ATTRIBUTE_LIST[5]}:{chr}
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => increaseAttribute(chr, setChr)}>+</button>
+          <button onClick={() => decreaseAttribute(chr, setChr)}>-</button>
         </div>
       </section>
     </div>
